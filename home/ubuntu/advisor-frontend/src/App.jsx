@@ -552,24 +552,27 @@ function App() {
                       )}
                       
                       {architectureData.data_flow && (
-                        <Card className="border">
-                          <CardHeader>
-                            <CardTitle className="text-lg">Поток данных</CardTitle>
-                          </CardHeader>
-                          <CardContent>
-                            <ol className="text-sm text-gray-600 dark:text-gray-300 space-y-2">
-                              {architectureData.data_flow.map((step, index) => (
-                                <li key={index} className="flex items-start gap-3">
-                                  <div className="flex-shrink-0 w-6 h-6 bg-purple-500 text-white rounded-full flex items-center justify-center text-xs font-medium">
-                                    {index + 1}
-                                  </div>
-                                  {step}
-                                </li>
-                              ))}
-                            </ol>
-                          </CardContent>
-                        </Card>
-                      )}
+ <Card className="border">
+    <CardHeader>
+      <CardTitle className="text-lg">Поток данных</CardTitle>
+    </CardHeader>
+    <CardContent>
+      <ol className="text-sm text-gray-600 dark:text-gray-300 space-y-2">
+        {architectureData.data_flow.map((step, index) => (
+          <li key={index} className="flex items-start gap-3">
+            <div className="flex-shrink-0 w-6 h-6 bg-purple-500 text-white rounded-full flex items-center justify-center text-xs font-medium">
+              {step.step}
+            </div>
+            <div>
+              <strong>{step.title}:</strong> {step.description}
+            </div>
+          </li>
+        ))}
+      </ol>
+    </CardContent>
+  </Card>
+)}
+
                     </div>
                   )}
                 </CardContent>
